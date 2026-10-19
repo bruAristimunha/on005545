@@ -23,3 +23,9 @@ Rows were matched to header channels BY NAME, never by position (exact; then cas
 Applied by position, the former rows would have given wrong labels to 16864 channels in 336 files (rows missing, extra or out of order before that position).
 
 Bipolar data: in 333 files the data header holds bipolar derivations named after two contacts (e.g. `POL A1-A2`), while channels.tsv listed the monopolar contacts (`A1`, `A2`, ...). A derivation is not matched to the row of its first contact: each of the 16192 bipolar channels got its own row (type = the type of both contacts, `reference` = the second contact, columns shared by both contact rows copied, `status` bad when either contact was bad (5651 rows), good when both were good (10541 rows)), and the contact rows not recorded as such moved to `sourcedata/channels-removed-2026-10-18/`. electrodes.tsv (contact positions) is unchanged; a derivation `X-Y` lies between contacts X and Y.
+
+## Electrode locations (19 Oct 2026)
+
+Add coordsystem.json MNI305/mm next to 336 electrodes.tsv (proposal A1, Lane G round 4). Evidence: Wayne State (Asano/Kanno/Kochi) deposits use FreeSurfer-standard (MNI305/fsaverage) electrode coordinates; MNI305 is a millimetre space by definition. No OpenNeuro S3 version of this dataset ever held a coordsystem.json (all versions listed 2026-10-19). Paper PMC12355976 (section 2.2): "spatially normalized all electrode locations to the FreeSurfer standard brain space"; OpenNeuro ds005545 README: "electrode coordinates are provided in MNI-305 space"; 280 of the 336 electrodes files have x/y/z byte-identical to ds006234 (README MNI-305) and 178 to on007118-20 (deposited coordsystem fsaverage / mm).
+
+Full evidence per dataset: REPORT-ieeg-locations.md and ieeg_locations.json (Lane G, 19 Oct 2026). This dataset mirrors OpenNeuro; the same change belongs upstream. Local branch only.
