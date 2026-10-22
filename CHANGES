@@ -1,4 +1,4 @@
-Unreleased 2026-10-18
+1.0.4 2026-10-22
   - 2026-10-19 electrode locations: add coordsystem.json MNI305/mm next to 336 electrodes.tsv (336 files). README: section 'Electrode locations (19 Oct 2026)'.
   - channels.tsv of 336 recordings = the data-file header channel list (name, order, count; matched by name): 0 rows renamed to the header name, 16864 rows added, 43524 rows removed (kept in sourcedata/channels-removed-2026-10-18/), 0 files reordered, 16192 bipolar-derivation rows in 333 files (status from both contact rows). Before, mne_bids could not apply channels.tsv to these files (count or name mismatch).
   - README: section 'Channel names follow the data headers'.
